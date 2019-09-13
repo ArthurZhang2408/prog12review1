@@ -1,0 +1,16 @@
+random(0, 10);
+int x;
+ArrayList<String> words = new ArrayList<String>();
+words.add("RED");
+words.add("ORGANGE");
+words.add("YELLOW");
+words.add("GREEN");
+words.add("BLUE");
+color red = #DF151A;
+color orange = #DF151A;
+color yellow = #FD8603;
+color green = #F4F328;
+color blue = #00DA3C;
+color black = #000000;
+color white = #FFFFFF;
+println(words.get(int(random(0, 3))));
