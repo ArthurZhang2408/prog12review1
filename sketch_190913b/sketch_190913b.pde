@@ -6,8 +6,11 @@ color green = #F4F328;
 color blue = #00DA3C;
 color black = #000000;
 color white = #FFFFFF;
-String isRight = "";
+color cColor;
+String isRight = "y";
+int eChoice;
 int choice;
+int coin;
 int mode;
 final int menu = 0;
 final int gameip = 1;
@@ -28,6 +31,7 @@ void draw() {
   } else {
     println("Mode error! Mode was " + mode);
   }
+  println(coin);
 }
 
 void mouseReleased() {
@@ -35,6 +39,11 @@ void mouseReleased() {
     mode = gameip;
   } else if (mode == gameip) {
     if (mouseX < 300) {
+      if(coin == 0){
+        isRight = "y";
+      }else {
+        mode = gameover;
+      }
     } else {
       mode = gameover;
     }
