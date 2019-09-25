@@ -1,4 +1,4 @@
-void GameIP(){
+void GameIP() {
   background(255);
   fill(0);
   rect(0, 0, 300, 800);
@@ -12,35 +12,64 @@ void GameIP(){
   text("Point: " + point, 450, 700);
   text("High Score: " + highscore, 450, 760);
   textSize(84);
-  if (isRight.equals("y")){
+  if (IP) {
+    Length = 600;
     choice = int(random(0, 5));
-    coin = int(random(0, 5));
-      switch (colors [coin]){
-        case "RED":
+    coin = int(random(0, 2));
+    if (coin == 0) {
+      switch (colors [choice]) {
+      case "RED":
         fill(red);
         cColor = red;
         break;
-        case "ORANGE":
+      case "ORANGE":
         fill(orange);
         cColor = orange;
         break;
-        case "YELLOW":
+      case "YELLOW":
         fill(yellow);
         cColor = yellow;
         break;
-        case "GREEN":
+      case "GREEN":
         fill(green);
         cColor = green;
         break;
-        case "BLUE":
+      case "BLUE":
         fill(blue);
         cColor = blue;
         break;
       }
+    } else {
+      do {
+        eChoice = int(random(0, 5));
+      } while (eChoice == choice);
+      switch (colors [eChoice]) {
+      case "RED":
+        fill(red);
+        cColor = red;
+        break;
+      case "ORANGE":
+        fill(orange);
+        cColor = orange;
+        break;
+      case "YELLOW":
+        fill(yellow);
+        cColor = yellow;
+        break;
+      case "GREEN":
+        fill(green);
+        cColor = green;
+        break;
+      case "BLUE":
+        fill(blue);
+        cColor = blue;
+        break;
+      }
+    }
       textAlign(CENTER, CENTER);
       text(colors [choice], 300, 500);
-      isRight = "";
-  }else if (isRight.equals("")){
+      IP = false;
+  } else {
     fill(cColor);
     textAlign(CENTER, CENTER);
     text(colors [choice], 300, 500);
