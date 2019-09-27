@@ -42,10 +42,12 @@ void draw() {
   }
 }
 
-void mouseReleased(){
+void mousePressed(){
   if (mode == menu) {
+  if(mouseX <= 450 && mouseX >= 150 && mouseY <= 650 && mouseY >= 550){
     mode = gameip;
     IP = true;
+  }
   } else if (mode == gameip) {
     if (mouseX < 300) {
       if(coin == 0){
@@ -65,7 +67,7 @@ void mouseReleased(){
       }
     }
   } else if (mode == gameover) {
-    mode = menu;
+    if(mouseX <= 450 && mouseX >= 150 && mouseY <= 650 && mouseY >= 550) mode = menu;
   }
   if (point > highscore) highscore = point; 
 }
