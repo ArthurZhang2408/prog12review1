@@ -18,15 +18,18 @@ int Length;
 final int menu = 0;
 final int gameip = 1;
 final int gameover = 2;
+PFont font;
 
 void setup() {
+  font = createFont("formalart.ttf", 32);
+  textFont(font);
   size(600, 800);
   mode = menu;
 }
 
 void draw() {
   if (mode == menu) {
-    Menu();
+    Intro();
   } else if (mode == gameip) {
     GameIP();
     stroke(red);
