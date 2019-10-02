@@ -1,3 +1,4 @@
+PImage[] gif;
 String [] colors = {"RED", "ORANGE", "YELLOW", "GREEN", "BLUE", "BLACK", "WHITE"};
 color red = #DF151A;
 color orange = #E86100;
@@ -19,12 +20,21 @@ final int menu = 0;
 final int gameip = 1;
 final int gameover = 2;
 PFont font;
+int currentPic;
+String zero;
 
 void setup() {
   font = createFont("formalart.ttf", 32);
   textFont(font);
   size(600, 800);
+  gif = new PImage[18];
+  for(int i = 0; i < gif.length; i++){
+    if (i<10) zero = "0";
+    else zero = "";
+    gif[i] = loadImage("frames/frame_" + zero + i + "_delay-0.01s.png");
+  }
   mode = menu;
+  currentPic = 0;
 }
 
 void draw() {
