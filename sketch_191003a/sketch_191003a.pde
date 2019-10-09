@@ -1,4 +1,3 @@
-
 boolean upKey, downKey, leftKey, rightKey, spaceKey;
 
 PImage shipimg;
@@ -40,6 +39,12 @@ void draw(){
     Bullet.show();
     
     Bullet.act();
+    
+    if(!Bullet.alive()){
+    
+        gameObjects.remove(Bullet);
+    
+    }
   
   }
   

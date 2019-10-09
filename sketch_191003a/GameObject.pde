@@ -25,4 +25,11 @@ abstract class GameObject{
   
   }
   
+  
+  boolean alive(){
+  
+    return true;
+  
+  }
+  
 }

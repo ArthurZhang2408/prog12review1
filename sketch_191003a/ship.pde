@@ -1,6 +1,6 @@
 class ship extends GameObject{
 
-  int lives;
+  int lives, cooldown;
 
   PVector location;
 
@@ -19,6 +19,8 @@ class ship extends GameObject{
     velocity = new PVector(0,0);
 
     direction = new PVector(0,-0.1);
+    
+    cooldown = 50;
 
   }
 
