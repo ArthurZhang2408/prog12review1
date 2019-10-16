@@ -8,7 +8,7 @@ int shipsize = 100;
 
 boolean debug = true;
 
-ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
+ArrayList<GameObject> gameObjects;
 
 void setup(){
 
@@ -21,6 +21,16 @@ void setup(){
   myShip = new ship();
 
   imageMode(CENTER);
+  
+  gameObjects  = new ArrayList<GameObject>();
+  
+  gameObjects.add(myShip);
+  
+  gameObjects.add(new asteroid());
+  
+  gameObjects.add(new asteroid());
+  
+  gameObjects.add(new asteroid());
 
 }
 
@@ -34,19 +44,19 @@ void draw(){
 
   myShip.act();
   
-  for(GameObject Bullet : gameObjects){
+  //for(GameObject Bullet : gameObjects){
   
-    Bullet.show();
+  //  Bullet.show();
     
-    Bullet.act();
+  //  Bullet.act();
     
-    if(!Bullet.alive()){
+  //  if(!Bullet.alive()){
     
-        gameObjects.remove(Bullet);
+  //      gameObjects.remove(Bullet);
     
-    }
+  //  }
   
-  }
+  //}
   
   //for(int i = 0; i < gameObjects.size(); i ++){
   
@@ -55,6 +65,28 @@ void draw(){
   //  bullet.show();
     
   //}
+  
+  int i = 0;
+  
+  while (i < gameObjects.size()) {
+  
+    GameObject obj = gameObjects.get(i);
+    
+    obj.show();
+    
+    obj.act();
+    
+    if (obj.lives == 0) {
+    
+      gameObjects.remove(i);
+    
+    } else {
+    
+      i ++;
+    
+    }
+  
+  }
 
 }
 

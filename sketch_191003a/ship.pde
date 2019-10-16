@@ -1,12 +1,6 @@
 class ship extends GameObject{
 
-  int lives, cooldown;
-
-  PVector location;
-
-  PVector velocity;
-
-  PVector direction;
+  int cooldown;
 
   
 
@@ -18,7 +12,7 @@ class ship extends GameObject{
 
     velocity = new PVector(0,0);
 
-    direction = new PVector(0,-0.1);
+    direction = new PVector(0,-0.05);
     
     cooldown = 50;
 
@@ -55,6 +49,8 @@ class ship extends GameObject{
   
 
   void act(){
+    
+    super.act();
 
     location.add(velocity);
 
@@ -68,13 +64,13 @@ class ship extends GameObject{
     
     if(spaceKey) gameObjects.add(new bullet());
 
-    if (location.x < -shipsize / 2) location.x = width + shipsize / 2;
+    //if (location.x < -shipsize / 2) location.x = width + shipsize / 2;
 
-    if (location.x > width + shipsize / 2) location.x = -shipsize / 2;
+    //if (location.x > width + shipsize / 2) location.x = -shipsize / 2;
 
-    if (location.y < -shipsize / 2) location.y = height + shipsize / 2;
+    //if (location.y < -shipsize / 2) location.y = height + shipsize / 2;
 
-    if (location.y > height + shipsize / 2) location.y = -shipsize / 2;
+    //if (location.y > height + shipsize / 2) location.y = -shipsize / 2;
 
   }
 
