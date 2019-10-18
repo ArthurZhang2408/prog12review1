@@ -31,6 +31,12 @@ void setup(){
   gameObjects.add(new asteroid());
   
   gameObjects.add(new asteroid());
+  
+  gameObjects.add(new asteroid());
+  
+  gameObjects.add(new asteroid());
+  
+  gameObjects.add(new asteroid());
 
 }
 
@@ -76,7 +82,7 @@ void draw(){
     
     obj.act();
     
-    if (obj.lives == 0) {
+    if (!obj.alive()) {
     
       gameObjects.remove(i);
     
