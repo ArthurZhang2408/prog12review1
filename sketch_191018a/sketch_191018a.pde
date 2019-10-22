@@ -1,65 +1,62 @@
-boolean upkey, downkey, leftkey, rightkey, spacekey;
+boolean upkey, downkey, leftkey, rightkey, spacekey, debug;
 
-PImage shipimg;
+PImage shipimg, asteroidimg, bgimg;
 
 Ship myShip;
 
+int shipsize = 100;
+
 ArrayList<GameObject> myGameObjects;
+final int menu = 0;
+final int gameip = 1;
+final int gameover = 2;
+int mode;
 
 
 
 void setup() {
+  
+  mode = menu;
+  
+  debug = true;
 
   size(800, 600);
 
   imageMode(CENTER);
 
+  shipimg = loadImage("ship.png");
+
+  shipimg.resize(shipsize, shipsize);
+
   myShip = new Ship();
+  
+  bgimg = loadImage("bg.png");
+  
+  bgimg.resize(800, 600);
 
   myGameObjects = new ArrayList<GameObject>();
 
+
   
-
-  myGameObjects.add(new Asteroid());
-
-  myGameObjects.add(new Asteroid());
-
-  myGameObjects.add(new Asteroid());
+  myGameObjects.add(myShip);
+  
+  for(int i = 0; i < 5; i ++){
+    
+    myGameObjects.add(new Asteroid());
+    
+  }
 
 }
 
 
 
 void draw() {
-
-  background(0);
-
-  myShip.show();
-
-  myShip.act();
-
-  
-
-  int i = 0;
-
-  while (i < myGameObjects.size()) {
-
-    GameObject myObj = myGameObjects.get(i);
-
-    myObj.show();
-
-    myObj.act();
-
-    if (myObj.lives == 0) {
-
-       myGameObjects.remove(i); 
-
-    } else {
-
-       i++;
-
-    }
-
+  if (mode == menu) {
+    Intro();
+  } else if (mode == gameip) {
+    GameIP();
+  } else if (mode == gameover) {
+    GameOver();
   }
 
 }
@@ -94,4 +91,11 @@ void keyReleased() {
 
   if (key == ' ')       spacekey = false;
 
+}
+void mousePressed(){
+  if (mode == menu) {
+  if(mouseX <= 550 && mouseX >= 250 && mouseY <= 500 && mouseY >= 400){
+    mode = gameip;
+  }
+  }
 }

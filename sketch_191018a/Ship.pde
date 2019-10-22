@@ -48,9 +48,21 @@ class Ship extends GameObject {
 
     noFill();
 
-    triangle(-25, -12.5, -25, 12.5, 25, 0);
+    image(shipimg, 0, 0);
 
     popMatrix();
+
+    if(debug){
+
+      stroke(0, 255, 0);
+
+      line(100, 100, 100+velocity.x * 10, 100 + velocity.y * 10);
+
+      stroke(255, 0, 0);
+
+      line(100, 100, 100 + direction.x * 500, 100 + direction.y * 500);
+
+    }
 
   }
 
@@ -79,6 +91,32 @@ class Ship extends GameObject {
       myGameObjects.add(new Bullet());
 
       shotTimer = 0;
+
+    } int i = 0;
+
+    while (i < myGameObjects.size()) {
+
+      GameObject myObj = myGameObjects.get(i);
+
+      if (myObj instanceof Asteroid) {
+
+        if (dist(myObj.location.x, myObj.location.y, location.x, location.y) < size/2 + myObj.size/2) {
+
+          lives--;
+          
+          if(lives <= 0){
+          
+            mode = gameover;
+            
+          }
+
+        }
+
+      }
+
+
+
+      i++;
 
     }
 
