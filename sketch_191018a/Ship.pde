@@ -20,7 +20,7 @@ class Ship extends GameObject {
 
     shotTimer = 0;
 
-    threshold = 30;
+    threshold = 15;
 
 
 
@@ -103,6 +103,10 @@ class Ship extends GameObject {
         if (dist(myObj.location.x, myObj.location.y, location.x, location.y) < size/2 + myObj.size/2) {
 
           lives--;
+          
+          repawn = true;
+          
+          
           
           if(lives <= 0){
           

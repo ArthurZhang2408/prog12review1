@@ -4,7 +4,7 @@ class Asteroid extends GameObject {
 
   Asteroid() {
   
-  asteroidimg = loadImage("aster.jpg");
+  asteroidimg = loadImage("asteroid.png");
 
     lives = 1;
 
@@ -24,7 +24,7 @@ class Asteroid extends GameObject {
 
   Asteroid(int s, float x, float y) {
   
-  asteroidimg = loadImage("aster.jpg");
+  asteroidimg = loadImage("asteroid.png");
 
     lives = 1;
 

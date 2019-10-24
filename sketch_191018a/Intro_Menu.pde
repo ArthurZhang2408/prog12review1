@@ -1,10 +1,10 @@
 void Intro(){
   background(255);
   noStroke();
-  textSize(60);
+  textSize(84);
   textAlign(CENTER, CENTER);
   fill(0);
-  text("COLOR GAME", 400, 250);
+  text("ASTEROID", 400, 250);
   textSize(60);
   if(mouseX <= 550 && mouseX >= 250 && mouseY <= 500 && mouseY >= 400){
     fill(0);

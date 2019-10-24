@@ -1,4 +1,4 @@
-boolean upkey, downkey, leftkey, rightkey, spacekey, debug;
+boolean upkey, downkey, leftkey, rightkey, spacekey, debug, repawn;
 
 PImage shipimg, asteroidimg, bgimg;
 
@@ -17,6 +17,8 @@ int mode;
 void setup() {
   
   mode = menu;
+  
+  repawn = false;
   
   debug = true;
 
@@ -53,12 +55,11 @@ void setup() {
 void draw() {
   if (mode == menu) {
     Intro();
-  } else if (mode == gameip) {
+  } else if (mode == gameip && !repawn) {
     GameIP();
   } else if (mode == gameover) {
     GameOver();
   }
-
 }
 
 
@@ -97,5 +98,7 @@ void mousePressed(){
   if(mouseX <= 550 && mouseX >= 250 && mouseY <= 500 && mouseY >= 400){
     mode = gameip;
   }
+  }else if (mode == gameover) {
+    if(mouseX <= 550 && mouseX >= 250 && mouseY <= 500 && mouseY >= 400) {setup();}
   }
 }
