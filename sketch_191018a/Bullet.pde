@@ -1,3 +1,4 @@
+
 class Bullet extends GameObject {
 
 
@@ -16,7 +17,7 @@ class Bullet extends GameObject {
 
     lives = 1;
 
-    timer = 120;
+    timer = 60;
 
     size = 10;
 

@@ -32,4 +32,9 @@ void GameIP(){
     }
 
   }
+  
+  textSize(84);
+  fill(255);
+  text("Lives: " + myShip.lives, 400, 300);
+  text("Timer: " + timer, 450, 360);
 }
