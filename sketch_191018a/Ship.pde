@@ -42,7 +42,7 @@ class Ship extends GameObject {
 
 
 
-    threshold = 15;
+    threshold = 10;
 
 
 
@@ -111,6 +111,8 @@ class Ship extends GameObject {
 
 
       stroke(0, 255, 0);
+      
+      strokeWeight(1);
 
 
 
@@ -186,11 +188,7 @@ class Ship extends GameObject {
 
 
 
-    } int i = 0;
-
-
-
-    while (i < myGameObjects.size()) {
+    } for(int i = 0; i < myGameObjects.size(); i ++) {
 
 
 
@@ -202,7 +200,7 @@ class Ship extends GameObject {
 
 
 
-        if (dist(myObj.location.x, myObj.location.y, location.x, location.y) < size/2 + myObj.size/2 && !repawn) {
+        if (dist(myObj.location.x, myObj.location.y, location.x, location.y) < (shipsize/2 + myObj.size/2 - 10) && !repawn) {
 
 
 
@@ -234,22 +232,37 @@ class Ship extends GameObject {
 
 
 
+      }else if (myObj instanceof UFObullet) {
+
+
+
+        if (dist(myObj.location.x, myObj.location.y, location.x, location.y) < (shipsize/2 + myObj.size/2 - 10) && !repawn) {
+
+
+
+          lives--;
+
+          
+
+          repawn = true;
+          if(lives <= 0){
+
+          
+
+            mode = gameover;
+
+            
+
+          }
+
+
+
+        }
       }
 
 
 
-
-
-
-
-      i++;
-
-
-
-    }
-
-
-
+  }
   }
 
 

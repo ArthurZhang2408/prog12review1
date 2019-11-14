@@ -30,7 +30,7 @@ class Asteroid extends GameObject {
 
 
 
-    velocity.setMag( random(0, 2) );
+    velocity.setMag( random(1, 2) );
 
 
 
@@ -149,10 +149,17 @@ class Asteroid extends GameObject {
 
 
         if (dist(myObj.location.x, myObj.location.y, location.x, location.y) < size/2 + myObj.size/2) {
-
+          for(int j = 0; j < 8; j ++){
+          myGameObjects.add(new Particle(location.x, location.y, size));
+          }
 
 
           lives = 0;
+          
+          if(size == 100)point += 10;
+          else if(size == 50) point += 20;
+          else if(size == 25) point += 50;
+          else if(size < 25)point += 100;
 
 
 

@@ -3,15 +3,17 @@ boolean upkey, downkey, leftkey, rightkey, spacekey, debug, repawn;
 
 
 
-PImage shipimg, asteroidimg, bgimg;
+PImage shipimg, asteroidimg, bgimg, ufoimg;
 
 
 
 Ship myShip;
 
+UFO myUFO;
 
 
-int shipsize = 100;
+
+int shipsize = 100, highScore = 0;
 
 
 
@@ -23,9 +25,7 @@ final int gameip = 1;
 
 final int gameover = 2;
 
-int mode;
-  
-    int timer = 0;
+int mode, point, timer, asNum, ufotimer;
 
 
 
@@ -34,14 +34,22 @@ int mode;
 
 
 void setup() {
-
+  
+  
+  timer = 0;
+  
+  ufotimer = 0;
+  
+  asNum = 5;
+  
+  point = 0;
   
 
   mode = menu;
 
   
 
-  repawn = false;
+  repawn = true;
 
   
 
@@ -58,6 +66,9 @@ void setup() {
 
 
   shipimg = loadImage("ship.png");
+  
+  
+  ufoimg = loadImage("ufo.jpg");
 
 
 
@@ -66,6 +77,8 @@ void setup() {
 
 
   myShip = new Ship();
+  
+  
 
   
 
@@ -73,7 +86,7 @@ void setup() {
 
   
 
-  bgimg.resize(800, 600);
+  bgimg.resize(width, height);
 
 
 
@@ -89,7 +102,7 @@ void setup() {
 
   
 
-  for(int i = 0; i < 5; i ++){
+  for(int i = 0; i < asNum; i ++){
 
     
 
@@ -125,27 +138,10 @@ void draw() {
 
   }
   
-  if(repawn && mode == gameip){
-    
-    timer ++;
-
-    stroke( #07ccff);
-    
-    strokeWeight(3);
-    
-    noFill();
-    
-    ellipse(myShip.location.x, myShip.location.y, 150, 150);
-    
-    if(timer == 120) {
-      
-      repawn = false;
-      
-      timer = 0;
-    
-    } 
+   
   
-  }
+  
+  
 
 }
 
